@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { admin } = require('../../models');
 
-// The `/api/categories` endpoint
+
 
 router.get('/', async (req, res) => {
   try {
