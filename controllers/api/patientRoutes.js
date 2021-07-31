@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async  (req, res) => {
   try {
-    const thisPatient = await Category.findByPk(req.params.id, {
+    const thisPatient = await patient.findByPk(req.params.id, {
       
     });
 
@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id',async (req, res) => {
   try {
-    const newPatient = await Category.update(req.body, {
+    const newPatient = await patient.update(req.body, {
       where: {
         id: req.params.id,
       },
@@ -68,7 +68,7 @@ router.put('/:id',async (req, res) => {
 
 router.delete('/:id',async  (req, res) => {
   try {
-    const newPatient = await Category.destroy({
+    const newPatient = await patient.destroy({
       where: {
         id: req.params.id,
       },
