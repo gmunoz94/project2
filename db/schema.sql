@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS firstSite_db;
+
+CREATE DATABASE firstSite_db;
