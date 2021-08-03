@@ -2,13 +2,17 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
+
 class admin extends Model {
+
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+
 admin.init(
+
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,7 +20,11 @@ admin.init(
       primaryKey: true,
       autoIncrement: true,
     },
-   
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -48,4 +56,6 @@ admin.init(
   }
 );
 
+
 module.exports = admin;
+

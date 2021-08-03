@@ -16,7 +16,7 @@
               <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
               </a>
-    
+              {{#if loggedIn}}
               <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                 <li>
                   <a href="#" class="nav-link text-secondary">
@@ -43,6 +43,7 @@
                   </a>
                 </li>
               </ul>
+              {{/if}}
             </div>
           </div>
         </div>
@@ -53,8 +54,12 @@
             </form>
     
             <div class="text-end">
+              {{#if loggedIn}}
               <button type="button" class="btn btn-light text-dark me-2">Logout</button>
-              <button type="button" class="btn btn-primary">Sign-up</button>
+              {{else}}
+              <a href="/login" type="button" class="btn btn-light text-dark me-2">Login</a>
+              <a href="/signup" type="button" class="btn btn-primary">Sign-up</a>
+              {{/if}}
             </div>
           </div>
         </div>
