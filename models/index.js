@@ -1,4 +1,10 @@
-const Admin = require('./admins');
-const Patient = require('./patient');
 
-module.exports = { Admin, Patient };
+// fname lname dob phone number email
+
+const patient = require('./patient');
+const admin = require('./admins');
+
+
+
+
+module.exports = {patient, admin};
