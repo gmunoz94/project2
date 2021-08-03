@@ -10,6 +10,6 @@ client.messages.create({
 
     to: '+1 210 464 0710',
     from : '+1 210 750 3157',
-    body: "Testing"
+    body: "sent from my desktop"
 })
 .then((message) => console.log(message.sid));
