@@ -13,13 +13,11 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      //document.location.replace('/');
+      document.location.replace('/');
       alert("ok")
     } else {
       alert('Failed to sign up.');
     }
   }
 };
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
