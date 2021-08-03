@@ -61,12 +61,11 @@ router.post('/signup', async (req, res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
-  console.log("hi")
+  //console.log("hi")
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end();
-      //added
       res.redirect('/login');
+      res.status(204).end();
     });
   } else {
     res.status(404).end();
