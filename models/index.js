@@ -1,1 +1,4 @@
-// fname lname dob phone number email
+const Admin = require('./admins');
+const Patient = require('./patient');
+
+module.exports = { Admin, Patient };
