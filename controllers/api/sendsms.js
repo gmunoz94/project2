@@ -6,10 +6,18 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 const client = require("twilio")(accountSid,authToken);
 
+function sendSMS(recipientNumber,messageBody){
+
 client.messages.create({
 
-    to: '+1 210 464 0710',
+    to: recipientNumber,
     from : '+1 210 750 3157',
-    body: "sent from my desktop"
+    body: messageBody
+
 })
 .then((message) => console.log(message.sid));
+
+}
+
+sendSMS('+12104640710', "test")
+
