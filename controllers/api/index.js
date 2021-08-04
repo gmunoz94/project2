@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const userRoutes = require('./user-route');
 
+const patientRoutes = require('./patientRoutes');
 
 const adminTemps = require('./adminTemps');
 
