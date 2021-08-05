@@ -2,7 +2,7 @@
     <div class="p-5 mb-4 bg-light rounded-3">
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Add Patient</h1>
-            <form class="form d-flex justify-content-around">
+            <form class="form d-flex justify-content-between">
                 <div class="form-floating col-2">
                     <input type="text" name="firstName" class="form-control" id="ptFirstName" placeholder="First Name">
                     <label for="ptFirstName">First Name</label>
@@ -11,7 +11,7 @@
                     <input type="text" name="lastName" class="form-control" id="ptLastName" placeholder="Last Name">
                     <label for="ptLastName">Last Name</label>
                 </div>
-                <div class="form-floating col-1">
+                <div class="form-floating col-2">
                     <input type="date" name="ptDOB" class="form-control" id="ptDOB" placeholder="01/01/1999">
                     <label for="ptDOB">Date of Birth</label>
                 </div>
@@ -23,7 +23,7 @@
                     <input type="text" name="ptPhoneNumber" class="form-control" id="ptPhoneNumber" placeholder="(210)000-0000">
                     <label for="ptPhoneNumber">Phone Number</label>
                 </div>
-                <button class="col-1 btn btn-lg btn-primary" type="submit">Add Patient</button>
+                <button class="col-1 btn btn-lg btn-primary" type="submit" id="addPT">Add Patient</button>
             </form>
           </div>
     </div>
