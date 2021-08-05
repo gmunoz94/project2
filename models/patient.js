@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection')
 
 class patient extends Model {
@@ -30,10 +30,7 @@ patient.init(
             validate: {
                 isEmail: true,
             },
-
-            
         },
-
         phone_number: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -47,7 +44,7 @@ patient.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'patients',
     }
 );
 

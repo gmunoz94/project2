@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const { User } = require('../models');
-//const withAuth = require('../utils/auth'); //redirect to login if not logged in
+const withAuth = require('../utils/auth'); //redirect to login if not logged in
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   //router.get('/', withAuth, async (req, res) => {
-  res.render('poop');
+  res.render('order', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 router.get('/login', (req, res) => {
