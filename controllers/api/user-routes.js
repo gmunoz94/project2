@@ -64,7 +64,6 @@ router.post('/logout', (req, res) => {
   //console.log("hi")
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.redirect('/login');
       res.status(204).end();
     });
   } else {
