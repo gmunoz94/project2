@@ -46,7 +46,7 @@ patient.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'patients',
+        modelName: 'patient',
     }
 );
 

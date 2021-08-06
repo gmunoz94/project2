@@ -1,40 +1,50 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const { afterUpdate } = require('./patient');
 
 
-class user extends Model {
+class order extends Model {
 
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
+//patient id
+//order type
+//order status
 
-
-user.init(
+order.init(
 
   {
+
+    patient_id: {
+       type:DataTypes.INTEGER,
+       references: {
+        model: 'Patient',
+        key: 'id'
+         } 
+      },
+
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    email: {
+    type: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
+  
+     
     },
-    password: {
+    orderstatus: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [6],
-      },
+    
+      
     },
+  
   },
   {
     hooks: {
@@ -42,15 +52,18 @@ user.init(
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
+      async afterUpdate(){
+
+      }
     },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'orders',
   }
 );
 
 
-module.exports = user;
+module.exports = order;
 

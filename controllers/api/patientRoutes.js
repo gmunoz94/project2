@@ -8,7 +8,13 @@ router.get('/', async (req, res) => { //try to put sql shit here
     const allPatients = await patient.findAll({
     
     });
+
+    const patients = allPatients.map((patients) => patients.get({ plain: true })
+    );
     res.status(200).json(allPatients);
+    res.render('patientsPage', {
+      patients,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
