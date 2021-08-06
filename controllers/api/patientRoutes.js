@@ -3,7 +3,7 @@ const { patient } = require('../../models');
 
 // The `/api/patient` endpoint
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => { //try to put sql shit here
   try {
     const allPatients = await patient.findAll({
     

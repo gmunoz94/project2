@@ -6,8 +6,6 @@ class patient extends Model {
 }
 
 patient.init(
-
-
     {
         id: {
             type: DataTypes.INTEGER,
