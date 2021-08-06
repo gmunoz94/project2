@@ -1,0 +1,75 @@
+<section class="container bg-dark p-4 rounded-1">
+    <div class="main-body">
+        <div class="row d-flex">
+            <div class="col-md-3 mb-3">
+                <div class="card-body bg-light rounded-3">
+                    <div class="d-flex flex-column text-center p-1"> 
+                        <a class="btn btn-success my-2"><h5 class="my-1">Profile</h5></a>
+                        <a class="btn btn-secondary my-2"><h5 class="my-1">All Orders</h5></a>
+                        <a class="btn btn-secondary my-2"><h5 class="my-1">Pending Orders</h5></a>
+                        <a class="btn btn-secondary my-2"><h5 class="my-1">Complete Orders</h5></a>
+                        <a class="btn btn-secondary my-2"><h5 class="my-1">New Order</h5></a>
+                    </div>   
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <form class="form">
+                            <div class="row">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6 class="mb-0">First Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="firstName" class="form-control" id="ptFirstName" value="{{currentPatient.first_name}}">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6 class="mb-0">Last Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="lastName" class="form-control" id="ptLastName" value="{{currentPatient.last_name}}">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="ptEmail" class="form-control" id="ptEmail" value="{{currentPatient.email}}">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6 class="mb-0">Date of Birth</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="date" name="ptDOB" class="form-control" id="ptDOB" data-date-format="M/D/YYYY" value="{{ format_date currentPatient.dateOfBirth }}">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6 class="mb-0">Phone Number</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="tel" name="ptPhoneNumber" class="form-control" id="ptPhoneNumber" value="{{currentPatient.phone_number}}">    
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="com-sm-2 ms-auto">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</section>

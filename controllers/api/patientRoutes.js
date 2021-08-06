@@ -24,18 +24,24 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:id', async  (req, res) => {
+router.get('/:id', withAuth, async  (req, res) => {
   try {
-    const thisPatient = await patient.findByPk(req.params.id, {
-      
-    });
+    const thisPatient = await patient.findByPk(req.params.id);
 
     if (!thisPatient) {
       res.status(404).json({ message: 'No patient with this ID' });
       return;
     }
 
-    res.status(200).json(thisPatient);
+    const currentPatient = thisPatient.get({ plain: true })
+    
+    console.log(currentPatient)
+
+    // res.status(200).json(thisPatient);
+    res.render('patient-page', {
+      loggedIn: req.session.loggedIn,
+      currentPatient
+    })
   } catch (err) {
     res.status(500).json(err);
   }
