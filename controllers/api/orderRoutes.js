@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const orders = await order.findAll({
     
     });
-    res.status(200).json(allPatients);
+    res.status(200).json(orders);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -20,12 +20,12 @@ router.get('/:id', async  (req, res) => {
       
     });
 
-    if (!order) {
+    if (!orders) {
       res.status(404).json({ message: 'No patient with this ID' });
       return;
     }
 
-    res.status(200).json(order);
+    res.status(200).json(orders);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
      
     });
 
-    res.status(200).json(newPatient);
+    res.status(200).json(orders);
     
   } catch (err) 
   {
@@ -73,16 +73,16 @@ router.put('/:id',async (req, res) => {
 
 router.delete('/:id',async  (req, res) => {
   try {
-    const newPatient = await patient.destroy({
+    const orders = await order.destroy({
       where: {
         id: req.params.id,
       },
     });
-    if (!newPatient) {
+    if (!orders) {
       res.status(404).json({ message: 'No order here boss!' });
       return;
     }
-    res.status(200).json(newPatient);
+    res.status(200).json(orders);
   } catch (err) {
     res.status(500).json(err);
   }
