@@ -39,7 +39,7 @@ order.init(
      
     },
     orderstatus: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     
       
