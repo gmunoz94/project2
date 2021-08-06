@@ -3,6 +3,7 @@
 
 const patient = require('./patient');
 const order = require('./order');
+const user = require('./User')
 
 
 
@@ -16,5 +17,5 @@ order.belongsTo(patient, {
 
 
 
-module.exports = { patient, order };
+module.exports = { patient, order, user };
 
