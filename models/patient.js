@@ -6,8 +6,6 @@ class patient extends Model {
 }
 
 patient.init(
-
-
     {
         id: {
             type: DataTypes.INTEGER,
@@ -43,7 +41,6 @@ patient.init(
     },
 
     {
-
         sequelize,
         timestamps: false,
         freezeTableName: true,

@@ -1,18 +1,22 @@
 const router = require('express').Router();
 const { patient } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // The `/api/patient` endpoint
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const allPatients = await patient.findAll({
     
     });
 
-    const patients = allPatients.map((patients) => patients.get({ plain: true })
+    console.log(allPatients)
+    const patients = allPatients.map((patientList) => patientList.get({ plain: true })
     );
-    res.status(200).json(allPatients);
+    console.log(patients)
+    // res.status(200).json(allPatients);
     res.render('patientsPage', {
+      loggedIn: req.session.loggedIn,
       patients,
     });
   } catch (err) {
