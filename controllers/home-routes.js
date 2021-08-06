@@ -27,7 +27,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/patientsPage', (req, res) => {
+router.get('/patientsPage', withAuth, (req, res) => {
   res.render('patientsPage', {
     loggedIn: req.session.loggedIn,
   });
