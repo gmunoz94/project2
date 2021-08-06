@@ -37,8 +37,8 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link text-white">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                  <a href="/patientsPage" class="nav-link text-white">
+                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#patientsPage"></use></svg>
                     Patients
                   </a>
                 </li>
@@ -72,6 +72,8 @@
           {{{body}}}
       </section>
       <!--use a if statement here {{#if loggedIn}}{{/if}}-->
+      {{#if loggedIn}}
 <script src="/js/logout.js"></script>
+{{/if}}
 </body>
 </html>
