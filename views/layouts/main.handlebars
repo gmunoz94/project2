@@ -37,8 +37,8 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link text-white">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                  <a href="/patientsPage" class="nav-link text-white">
+                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#patientsPage"></use></svg>
                     Patients
                   </a>
                 </li>
@@ -51,10 +51,17 @@
           <div class="container d-flex flex-wrap justify-content-end">
             <div class="text-end">
               {{#if loggedIn}}
+<<<<<<< HEAD
+              <button type="button" class="btn btn-primary text-dark me-2" id="logout">Logout</button>
+              {{else}}
+              <button type="button" class="btn btn-primary text-dark me-2" id="login"><a href="/login" class="text-white" style="text-decoration: none;">Login</a></button>
+              <button type="button" class="btn btn-primary" id="signup"><a href="/signup" class="text-white" style="text-decoration: none;">Sign-up</a></button>
+=======
               <button type="button" class="btn btn-primary" id="logout">Logout</button>
               {{else}}
               <button type="button" class="btn btn-primary" id="login"><a href="/login" style="color: white;">Login</a></button>
               <button type="button" class="btn btn-primary" id="signup"><a href="/signup" style="color: white;">Sign-up</a></button>
+>>>>>>> 9ab53c2476d5444cfaf01e56897f8194ea35f6a4
               {{/if}}
             </div>
           </div>
@@ -65,6 +72,8 @@
           {{{body}}}
       </section>
       <!--use a if statement here {{#if loggedIn}}{{/if}}-->
+      {{#if loggedIn}}
 <script src="/js/logout.js"></script>
+{{/if}}
 </body>
 </html>
