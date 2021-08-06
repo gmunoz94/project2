@@ -2,7 +2,7 @@
     <div class="p-5 mb-4 bg-light rounded-3">
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Add Patient</h1>
-            <form class="form d-flex justify-content-between">
+            <form class="form d-flex justify-content-between add-patient">
                 <div class="form-floating col-2">
                     <input type="text" name="firstName" class="form-control" id="ptFirstName" placeholder="First Name">
                     <label for="ptFirstName">First Name</label>
@@ -16,7 +16,7 @@
                     <label for="ptDOB">Date of Birth</label>
                 </div>
                 <div class="form-floating col-2">
-                    <input type="text" name="ptEmail" class="form-control" id="ptEmail" placeholder="example@email.com">
+                    <input type="email" name="ptEmail" class="form-control" id="ptEmail" placeholder="example@email.com">
                     <label for="ptEmail">Email</label>
                 </div>
                 <div class="form-floating col-2">
@@ -45,3 +45,5 @@
           </div>
     </div>
 </section>
+
+<script src="/js/patient.js"></script>

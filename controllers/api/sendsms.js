@@ -4,7 +4,7 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 
-const client = require("twilio")(accountSid,authToken);
+const client = require('twilio')(accountSid, authToken);
 
 function sendSMS(recipientNumber,messageBody){
 
@@ -19,5 +19,4 @@ client.messages.create({
 
 }
 
-sendSMS('+12104640710', "test")
-
+sendSMS('+12107105932', "This is what coding looks like")
