@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const { afterUpdate } = require('./patient');
 const sendSMS = require('../controllers/api/sendsms');
 const patient = require('./patient');
 
@@ -12,9 +11,6 @@ class order extends Model {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
-//patient id
-//order type
-//order status
 
 order.init(
 
