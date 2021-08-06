@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth'); //redirect to login if not logged in
 
 router.get('/', withAuth, async (req, res) => {
   //router.get('/', withAuth, async (req, res) => {
-  res.render('order', {
+  res.render('poop', {
     loggedIn: req.session.loggedIn,
   });
 });
