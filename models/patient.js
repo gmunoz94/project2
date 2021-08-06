@@ -30,10 +30,7 @@ patient.init(
             validate: {
                 isEmail: true,
             },
-
-            
         },
-
         phone_number: {
             type: DataTypes.STRING,
             allowNull: false,
