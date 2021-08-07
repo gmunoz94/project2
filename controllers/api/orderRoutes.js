@@ -44,7 +44,6 @@ router.post('/', async (req, res) => {
       patient_id: newPatient.id,
       type: req.body.type,
       orderstatus: req.body.orderstatus,
-     
     });
 
     res.status(200).json(orders);
