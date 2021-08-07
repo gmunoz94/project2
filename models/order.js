@@ -32,7 +32,7 @@ order.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    orderstatus: {
+    status: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -40,10 +40,10 @@ order.init(
   {
     hooks: {
       afterUpdate: async (thisOrder) => {
-        if (thisOrder.orderstatus === 2) {
+        if (thisOrder.status == 2) {
           const thisPatient = await patient.findByPk(thisOrder.patient_id)
   
-          sendSMS(thisPatient.phone_number, 'Your Order is Ready');
+          sendSMS("+1" + thisPatient.phone_number, 'Your Order is Ready');
         }
       }
     },
