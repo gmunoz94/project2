@@ -1,7 +1,6 @@
 {
   "name": "firstsite",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,5 +20,14 @@
     "nodemon": "^2.0.12",
     "sequelize": "^6.6.5",
     "twilio": "^3.66.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmunoz94/project2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gmunoz94/project2/issues"
+  },
+  "homepage": "https://github.com/gmunoz94/project2#readme",
+  "description": ""
 }
