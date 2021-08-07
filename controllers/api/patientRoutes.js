@@ -1,31 +1,47 @@
 const router = require('express').Router();
 const { patient } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // The `/api/patient` endpoint
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const allPatients = await patient.findAll({
     
     });
-    res.status(200).json(allPatients);
+
+    console.log(allPatients)
+    const patients = allPatients.map((patientList) => patientList.get({ plain: true })
+    );
+    console.log(patients)
+    // res.status(200).json(allPatients);
+    res.render('patientsPage', {
+      loggedIn: req.session.loggedIn,
+      patients,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/:id', async  (req, res) => {
+router.get('/:id', withAuth, async  (req, res) => {
   try {
-    const thisPatient = await patient.findByPk(req.params.id, {
-      
-    });
+    const thisPatient = await patient.findByPk(req.params.id);
 
     if (!thisPatient) {
       res.status(404).json({ message: 'No patient with this ID' });
       return;
     }
 
-    res.status(200).json(thisPatient);
+    const currentPatient = thisPatient.get({ plain: true })
+    
+    console.log(currentPatient)
+
+    // res.status(200).json(thisPatient);
+    res.render('patient-page', {
+      loggedIn: req.session.loggedIn,
+      currentPatient
+    })
   } catch (err) {
     res.status(500).json(err);
   }

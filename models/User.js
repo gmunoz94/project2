@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 
-class admin extends Model {
+class user extends Model {
 
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
@@ -11,7 +11,7 @@ class admin extends Model {
 }
 
 
-admin.init(
+user.init(
 
   {
     id: {
@@ -47,10 +47,10 @@ admin.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'admins',
+    modelName: 'user',
   }
 );
 
 
-module.exports = admin;
+module.exports = user;
 
