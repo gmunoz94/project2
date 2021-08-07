@@ -6,8 +6,6 @@ const putFormHandler = async (event) => {
     const email = document.querySelector('#ptEmail').value.trim();
     const phone_number = document.querySelector('#ptPhoneNumber').value.trim();
     const dateOfBirth = document.querySelector('#ptDOB').value.trim();
-    console.log('hi:)')
-    console.log(first_name)
 
     if (first_name && last_name && email && phone_number && dateOfBirth) {
         const response = await fetch(`/api/patient/${patient_id}`, {
@@ -17,9 +15,7 @@ const putFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            console.log('hello')
-            console.log(first_name)
-            // document.location.replace('/');
+            document.location.replace(`/api/patient/${patient_id}}`);
         } else {
             alert('Failed to add Patient')
         }
