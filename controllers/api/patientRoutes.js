@@ -6,9 +6,11 @@ const withAuth = require('../../utils/auth')
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const allPatients = await patient.findAll();
-    
+    const allPatients = await patient.findAll({});
+
+    // console.log(allPatients)
     const patients = allPatients.map((patientList) => patientList.get({ plain: true })
+    //.map new array patientlist is new variable // then gets a clean array
     );
     // console.log(patients)
     // res.status(200).json(allPatients);

@@ -12,8 +12,8 @@
         </tr>
       </thead>
       <tbody>
-        <!---->
-        {{#each patients as |patient|}}
+        <!--patients = patientRoutes part with the const patients || is variabel > is handlbars page-->
+        {{#each patients as |patient|}} 
         {{> patient-data}}
         {{/each}}
       </tbody>
