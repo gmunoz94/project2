@@ -38,10 +38,6 @@ const orderFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        console.log(patient_id);
-        console.log(type);
-        console.log(status);
-
         if (response.ok) {
             // document.location.replace('/');
         } else {
