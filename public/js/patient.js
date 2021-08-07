@@ -17,7 +17,7 @@ const patientFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            // document.location.replace('/');
+            document.location.replace('/api/patient');
         } else {
             alert('Failed to add Patient')
         }

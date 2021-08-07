@@ -39,11 +39,16 @@ order.init(
   },
   {
     hooks: {
-      afterUpdate: async (thisOrder) => {
-        if (thisOrder.status == 2) {
+      afterCreate: async (thisOrder) => {
           const thisPatient = await patient.findByPk(thisOrder.patient_id)
   
-          sendSMS("+1" + thisPatient.phone_number, 'Your Order is Ready');
+          sendSMS("+1" + thisPatient.phone_number, `Hello ${thisPatient.first_name} your ${thisOrder.type} order has been placed!`);
+      },
+      afterUpdate: async (thisOrder) => {
+        if (thisOrder.status == 1) {
+          const thisPatient = await patient.findByPk(thisOrder.patient_id)
+  
+          sendSMS("+1" + thisPatient.phone_number, `Hello ${thisPatient.first_name} your ${thisOrder.type} order is Ready!`);
         }
       }
     },

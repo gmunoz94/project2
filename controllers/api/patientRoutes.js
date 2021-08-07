@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
     
     const patients = allPatients.map((patientList) => patientList.get({ plain: true })
     );
-    console.log(patients)
+    // console.log(patients)
     // res.status(200).json(allPatients);
     res.render('patientsPage', {
       loggedIn: req.session.loggedIn,

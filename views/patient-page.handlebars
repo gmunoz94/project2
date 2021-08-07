@@ -5,6 +5,7 @@
             <div class="col-md-3 mb-3">
                 <div class="card-body bg-light rounded-3">
                     <div class="d-flex flex-column text-center p-1"> 
+                        <h3>{{currentPatient.first_name}} {{currentPatient.last_name}}</h3>
                         <a onclick="displayProfile()" class="btn btn-success my-2"><h5 class="my-1">Profile</h5></a>
                         <a onclick="allOrdersProfile()" class="btn btn-secondary my-2" ><h5 class="my-1">All Orders</h5></a>
                         <a onclick="pendingProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Pending Orders</h5></a>
@@ -221,8 +222,8 @@
                                 </th>
                                 <th scope="col">
                                     <select name="status" id="orderStatus">
-                                        <option value=0>Ordered</option>
-                                        <option value=1>Pending</option>
+                                        <option value=0>Pending</option>
+                                        <option value=1>Ready</option>
                                         <option value=2>Complete</option>
                                     </select>
                                 </th>

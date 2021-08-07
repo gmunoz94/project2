@@ -38,6 +38,7 @@ router.post('/', async (req, res) => {
   {
 
     const orders = await order.create({
+      individualHooks: true,
       patient_id: req.body.patient_id,
       type: req.body.type,
       status: req.body.status,
