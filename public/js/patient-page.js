@@ -43,11 +43,6 @@ const orderFormHandler = async (event) => {
         console.log(status);
 
         if (response.ok) {
-<<<<<<< HEAD
-=======
-            // console.log('hello')
-            // console.log(first_name)
->>>>>>> d4900c4ae477888c108c6d30aafc6319ec7f8ecb
             // document.location.replace('/');
         } else {
             alert('Failed to add Order')
