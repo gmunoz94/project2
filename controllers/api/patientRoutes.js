@@ -10,6 +10,7 @@ router.get('/', withAuth, async (req, res) => {
 
     // console.log(allPatients)
     const patients = allPatients.map((patientList) => patientList.get({ plain: true })
+    //.map new array patientlist is new variable // then gets a clean array
     );
     // console.log(patients)
     // res.status(200).json(allPatients);
