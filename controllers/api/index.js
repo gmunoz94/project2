@@ -9,6 +9,7 @@ const adminTemps = require('./adminTemps');
 const orderRoutes = require('./orderRoutes')
 
 
+
 router.use('/patient', patientRoutes);
 router.use('/admins', adminTemps);
 router.use('/users', userRoutes);
