@@ -15,7 +15,16 @@
             <div class="col-md-9">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <form class="form">
+                        <form class="form update-form">
+                            <div class="row">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6 class="mb-0">Patient id</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input disabled name="PatientId" class="form-control" id="ptId" value="{{currentPatient.id}}">
+                                </div>
+                            </div>
+                            <hr>
                             <div class="row">
                                 <div class="col-sm-3 align-self-center">
                                     <h6 class="mb-0">First Name</h6>
@@ -73,4 +82,4 @@
         </div>
     </div>    
 </section>
-<script src="../public/js/patient.js" ></script>
+<script src="/js/patient-page.js" ></script>
