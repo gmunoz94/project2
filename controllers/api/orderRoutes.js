@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { order, patient } = require('../../models');
 
-// The `/api/patient` endpoint
+// The `/api/orders` endpoint
 
 router.get('/', async (req, res) => {
   try {
@@ -36,15 +36,12 @@ router.get('/:id', async  (req, res) => {
 router.post('/', async (req, res) => {
   try 
   {
-    const newPatient = await patient.findOne({ where: { email: req.body.email }})
-
-    console.log(newPatient)
 
     const orders = await order.create({
-      patient_id: newPatient.id,
+      individualHooks: true,
+      patient_id: req.body.patient_id,
       type: req.body.type,
-      orderstatus: req.body.orderstatus,
-     
+      status: req.body.status,
     });
 
     res.status(200).json(orders);
