@@ -33,4 +33,10 @@ router.get('/patientsPage', withAuth, (req, res) => {
   });
 });
 
+router.get('/allOrders', withAuth, (req, res) => {
+  res.render('allOrders', {
+    loggedIn: req.session.loggedIn,
+  });
+});
+
 module.exports = router;
