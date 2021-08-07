@@ -1,9 +1,9 @@
 <tr>
-        <td>{{first_name}}</td>
-        <td>{{last_name}}</td>
-        <td>{{ format_date dateOfBirth}}</td>
-        <td>{{email}}</td>
-        <td>{{phone_number}}</td>
-        <td>Pending</td>
+        <td>{{patient.first_name}} {{patient.last_name}}</td>
+        <td>{{type}}</td>
+        <td></td>
+        <td></td>
+        <td>{{patient.phone_number}}</td>
+        <td>{{status}}</td>
         <td><a class="btn btn-primary" href="/api/patient/{{id}}">View Patient</button></a>
 </tr>

@@ -6,9 +6,22 @@ const { order, patient } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const orders = await order.findAll({
-    
-    });
-    res.status(200).json(orders);
+      include: [
+        {
+          model: patient,
+          attributes: [ 'first_name', 'last_name','phone_number' ]
+        }
+      ]
+    });  
+
+    const ptOrders = orders.map((theseOrders) => theseOrders.get({ plain:true}))
+    console.log(ptOrders)
+    res
+      .render('allOrders', {
+        loggedIn: req.session.loggedIn,
+        ptOrders,
+      })
+      // .status(200).json(orders);
   } catch (err) {
     res.status(500).json(err);
   }

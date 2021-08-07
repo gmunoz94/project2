@@ -12,7 +12,7 @@ patient.hasMany(order, {
 });
 
 order.belongsTo(patient, {
-    foreignKey: 'user_id',
+    foreignKey: 'patient_id',
 });
 
 
