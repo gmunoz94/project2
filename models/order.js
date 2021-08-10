@@ -33,7 +33,7 @@ order.init(
       allowNull: false,
     },
     status: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
@@ -45,7 +45,7 @@ order.init(
           sendSMS("+1" + thisPatient.phone_number, `Hello ${thisPatient.first_name} your ${thisOrder.type} order has been placed!`);
       },
       afterUpdate: async (thisOrder) => {
-        if (thisOrder.status == 1) {
+        if (thisOrder.status == 'Ready') {
           const thisPatient = await patient.findByPk(thisOrder.patient_id)
   
           sendSMS("+1" + thisPatient.phone_number, `Hello ${thisPatient.first_name} your ${thisOrder.type} order is Ready!`);
