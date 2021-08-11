@@ -21,7 +21,7 @@ function displayProfile() {
     if (New.style.display = "none") {
         New.style.display = "block";
         //make the rest display none
-        profile.style.display = "none";
-
+        pending.style.display = "none";
+        Complete.style.display = "none";
     } 
   }

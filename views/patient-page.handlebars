@@ -8,8 +8,8 @@
                         <h3>{{currentPatient.first_name}} {{currentPatient.last_name}}</h3>
                         <a href="/api/patient/{{currentPatient.id}}" class="btn btn-success my-2"><h5 class="my-1">Profile</h5></a>
                         <a href="/api/orders/allOrders/{{currentPatient.id}}/" class="btn btn-secondary my-2" ><h5 class="my-1">All Orders</h5></a>
-                        <a onclick="pendingProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Pending Orders</h5></a>
-                        <a onclick="completeProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Complete Orders</h5></a>
+                        <a href="/api/orders/pendingOrders/{{currentPatient.id}}/" class="btn btn-secondary my-2"><h5 class="my-1">Pending Orders</h5></a>
+                        <a href="/api/orders/completeOrders/{{currentPatient.id}}/" class="btn btn-secondary my-2"><h5 class="my-1">Complete Orders</h5></a>
                         <a onclick="newProfile()" class="btn btn-secondary my-2"><h5 class="my-1">New Order</h5></a>
 
                     </div>   
@@ -21,24 +21,6 @@
                 {{>profile-data}}
                 {{/if}}
 </div> 
-            {{!-- all orders --}}
-<div class="col-md-9" id="allOrders" style="display: none;">
-                {{#if currentPatient as |currentPatient|}} 
-                {{>allOrdersSpecific-data}}
-                {{/if}}
-</div> 
-            {{!-- pending orders --}}
-<div class="col-md-9" id="pending" style="display: none;">
-                {{#if currentPatient as |currentPatient|}} 
-                {{>pendingSpecific-data}}
-                {{/if}} 
-</div>
-            {{!-- Complete orders --}}
-<div class="col-md-9" id="Complete" style="display: none;">
-                {{#if currentPatient as |currentPatient|}} 
-                {{>completeSpecific-data}}
-                {{/if}} 
-</div>
                 {{!-- new order --}}
 <div class="col-md-9" id="new" style="display: none;">
 <div class="card mb-3">
