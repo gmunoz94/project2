@@ -53,6 +53,7 @@
                             <table class="table table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th scope="col">Patient ID</th>
                                         <th scope="col">Date of order</th>
                                         <th scope="col">type of order</th>
                                         <th scope="col">Order status</th>
@@ -63,6 +64,7 @@
                                 <tbody>
                                     <tr>
                                         <form class="order-form">
+                                            <th scope="col"><input type="input" disabled id="ptId" value="{{thisPt}}"></th>
                                             <th scope="col"><input type="date" id="orderDate"></th>
                                             <th scope="col">
                                                 <select name="orderType" id="orderType">
@@ -95,4 +97,3 @@
     </div>    
 </section>
 <script src="/js/patientAllDisplay.js"></script>
-<script src="/js/patient-page.js" ></script>

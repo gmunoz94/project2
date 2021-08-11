@@ -6,6 +6,7 @@
                 <div class="card-body bg-light rounded-3">
                     <div class="d-flex flex-column text-center p-1"> 
                         <h3>{{pendingOrders.0.patient.first_name}} {{pendingOrders.0.patient.last_name}}</h3>
+                        <p id="ptId">{{pendingOrders.0.patient.id}}</p>
                         <a href="/api/patient/{{thisPt}}" class="btn btn-secondary my-2"><h5 class="my-1">Profile</h5></a>
                         <a href="/api/orders/allOrders/{{thisPt}}/" class="btn btn-secondary my-2" ><h5 class="my-1">All Orders</h5></a>
                         <a href="/api/orders/pendingOrders/{{thisPt}}/" class="btn btn-success my-2"><h5 class="my-1">Pending Orders</h5></a>
@@ -53,6 +54,7 @@
                             <table class="table table-striped table-sm">
                                 <thead>
                                     <tr>
+                                        <th scope="col">Patient ID</th>
                                         <th scope="col">Date of order</th>
                                         <th scope="col">type of order</th>
                                         <th scope="col">Order status</th>
@@ -63,6 +65,7 @@
                                 <tbody>
                                     <tr>
                                         <form class="order-form">
+                                            <th scope="col"><input type="input" disabled id="ptId" value="{{thisPt}}"></th>
                                             <th scope="col"><input type="date" id="orderDate"></th>
                                             <th scope="col">
                                                 <select name="orderType" id="orderType">
@@ -95,4 +98,3 @@
     </div>    
 </section>
 <script src="/js/patientPendingDisplay.js"></script>
-<script src="/js/patient-page.js" ></script>
