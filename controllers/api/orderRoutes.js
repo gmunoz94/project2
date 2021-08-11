@@ -87,6 +87,68 @@ router.get('/pendingOrders/:id/', async  (req, res) => {
   }
 });
 
+router.get('/allPending', async  (req, res) => {
+  try {
+    const newOrders = await order.findAll({ 
+      where: { 
+        'status': [ 'pending' ]
+      },
+      include: [{
+        model: patient,
+      }]
+    });
+    
+    if (!newOrders) {
+      res.status(404).json({ message: 'No patient with this ID' });
+      return;
+    }
+    
+    const pendingOrders = newOrders.map((orderss) => orderss.get({ plain: true }));
+    
+    console.log(pendingOrders)
+
+    res.render('pendingOrders', {
+      loggedIn: req.session.loggedIn,
+      thisPt: req.params.id,
+      pendingOrders,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/allComplete', async  (req, res) => {
+  try {
+    const newOrders = await order.findAll({ 
+      where: { 
+        'status': [ 'complete' ]
+      },
+      include: [{
+        model: patient,
+      }]
+    });
+    
+    if (!newOrders) {
+      res.status(404).json({ message: 'No patient with this ID' });
+      return;
+    }
+    
+    const completeOrders = newOrders.map((orderss) => orderss.get({ plain: true }));
+    
+    console.log(completeOrders)
+
+    res.render('completeOrders', {
+      loggedIn: req.session.loggedIn,
+      thisPt: req.params.id,
+      completeOrders,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
 
 router.get('/completeOrders/:id/', async  (req, res) => {
   try {
