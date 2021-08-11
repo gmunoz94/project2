@@ -6,7 +6,7 @@
                 <div class="card-body bg-light rounded-3">
                     <div class="d-flex flex-column text-center p-1"> 
                         <h3>{{currentPatient.first_name}} {{currentPatient.last_name}}</h3>
-                        <a onclick="displayProfile()" class="btn btn-success my-2"><h5 class="my-1">Profile</h5></a>
+                        <a href="/api/patient/{{currentPatient.id}}" class="btn btn-success my-2"><h5 class="my-1">Profile</h5></a>
                         <a href="/api/orders/allOrders/{{currentPatient.id}}/" class="btn btn-secondary my-2" ><h5 class="my-1">All Orders</h5></a>
                         <a onclick="pendingProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Pending Orders</h5></a>
                         <a onclick="completeProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Complete Orders</h5></a>
@@ -59,7 +59,7 @@
                     <tbody>
                         <tr>
                             <form class="order-form">
-                                <th scope="col"><input type="date"></th>
+                                <th scope="col"><input type="date" id="orderDate"></th>
                                 <th scope="col">
                                     <select name="orderType" id="orderType">
                                         <option value="glasses">Glasses</option>

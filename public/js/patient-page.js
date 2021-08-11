@@ -27,14 +27,16 @@ document.querySelector('.update-form').addEventListener('submit', putFormHandler
 const orderFormHandler = async (event) => {
     event.preventDefault();
     const patient_id = document.querySelector('#ptId').value.trim();
+    const order_date = document.querySelector('#orderDate').value.trim();
     const type = document.querySelector('#orderType').value.trim();
     const status = document.querySelector('#orderStatus').value.trim();
 
+    console.log(order_date)
 
-    if (patient_id && type && status) {
+    if (patient_id && type && status && order_date) {
         const response = await fetch('/api/orders/', {
             method: 'POST',
-            body: JSON.stringify({ patient_id, type, status }),
+            body: JSON.stringify({ patient_id, type, status, order_date }),
             headers: { 'Content-Type': 'application/json' },
         });
 

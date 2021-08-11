@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: patient,
-          attributes: [ 'first_name', 'last_name','phone_number' ]
+          attributes: [ 'first_name', 'last_name','phone_number', 'email' ]
         }
       ]
     });  
@@ -77,7 +77,7 @@ router.get('/pendingOrders/:id/', async  (req, res) => {
     
     console.log(pendingOrders)
 
-    res.render('ptAllOrders', {
+    res.render('ptPendingOrders', {
       loggedIn: req.session.loggedIn,
       thisPt: req.params.id,
       pendingOrders,
@@ -109,7 +109,7 @@ router.get('/completeOrders/:id/', async  (req, res) => {
     
     console.log(completeOrders)
 
-    res.render('ptAllOrders', {
+    res.render('ptCompleteOrders', {
       loggedIn: req.session.loggedIn,
       thisPt: req.params.id,
       completeOrders,
