@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth')
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const allPatients = await patient.findAll({});
+    const allPatients = await patient.findAll();
 
     // console.log(allPatients)
     const patients = allPatients.map((patientList) => patientList.get({ plain: true })

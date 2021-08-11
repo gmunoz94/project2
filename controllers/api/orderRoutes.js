@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: patient,
-          attributes: [ 'first_name', 'last_name','phone_number' ]
+          attributes: [ 'first_name', 'last_name','phone_number', 'email' ]
         }
       ]
     });  
@@ -27,23 +27,97 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async  (req, res) => {
+router.get('/allOrders/:id/', async  (req, res) => {
   try {
-    const orders = await order.findByPk(req.params.id, {
-      
+    const allOrders = await order.findAll({ 
+      where: { 'patient_id': req.params.id },
+      include: [{
+        model: patient,
+      }]
     });
-
-    if (!orders) {
+    
+    if (!allOrders) {
       res.status(404).json({ message: 'No patient with this ID' });
       return;
     }
+    
+    const newAllOrders = allOrders.map((orderss) => orderss.get({ plain: true }));
+    
+    console.log(newAllOrders)
 
-    res.status(200).json(orders);
+    res.render('ptAllOrders', {
+      loggedIn: req.session.loggedIn,
+      thisPt: req.params.id,
+      newAllOrders,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+
+router.get('/pendingOrders/:id/', async  (req, res) => {
+  try {
+    const newOrders = await order.findAll({ 
+      where: { 
+        'patient_id': req.params.id ,
+        'status': [ 'pending', 'ready' ]
+      },
+      include: [{
+        model: patient,
+      }]
+    });
+    
+    if (!newOrders) {
+      res.status(404).json({ message: 'No patient with this ID' });
+      return;
+    }
+    
+    const pendingOrders = newOrders.map((orderss) => orderss.get({ plain: true }));
+    
+    console.log(pendingOrders)
+
+    res.render('ptPendingOrders', {
+      loggedIn: req.session.loggedIn,
+      thisPt: req.params.id,
+      pendingOrders,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/completeOrders/:id/', async  (req, res) => {
+  try {
+    const newOrders = await order.findAll({ 
+      where: { 
+        'patient_id': req.params.id, 
+        'status': [ 'complete' ]
+      },
+      include: [{
+        model: patient,
+      }]
+    });
+    
+    if (!newOrders) {
+      res.status(404).json({ message: 'No patient with this ID' });
+      return;
+    }
+    
+    const completeOrders = newOrders.map((orderss) => orderss.get({ plain: true }));
+    
+    console.log(completeOrders)
+
+    res.render('ptCompleteOrders', {
+      loggedIn: req.session.loggedIn,
+      thisPt: req.params.id,
+      completeOrders,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 router.post('/', async (req, res) => {

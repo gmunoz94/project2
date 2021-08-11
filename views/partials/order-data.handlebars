@@ -1,8 +1,8 @@
 <tr>
         <td>{{patient.first_name}} {{patient.last_name}}</td>
         <td>{{type}}</td>
-        <td></td>
-        <td></td>
+        <td>{{ order_date }}</td>
+        <td>{{ patient.email }}</td>
         <td>{{patient.phone_number}}</td>
         <td>{{status}}</td>
         <td><a class="btn btn-primary" href="/api/patient/{{id}}">View Patient</button></a>

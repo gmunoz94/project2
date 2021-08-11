@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 const sendSMS = require('../controllers/api/sendSms');
 const patient = require('./patient');
+const moment = require('moment')
 
 
 class order extends Model {
@@ -20,6 +21,12 @@ order.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    order_date: {
+      type: DataTypes.DATEONLY,
+      get: function() {
+        return moment.utc(this.getDataValue('regDate')).format('YYYY-MM-DD');
+      }
     },
     patient_id: {
        type:DataTypes.INTEGER,
