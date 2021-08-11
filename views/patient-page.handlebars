@@ -7,7 +7,7 @@
                     <div class="d-flex flex-column text-center p-1"> 
                         <h3>{{currentPatient.first_name}} {{currentPatient.last_name}}</h3>
                         <a onclick="displayProfile()" class="btn btn-success my-2"><h5 class="my-1">Profile</h5></a>
-                        <a onclick="allOrdersProfile()" class="btn btn-secondary my-2" ><h5 class="my-1">All Orders</h5></a>
+                        <a href="/api/orders/allOrders/{{currentPatient.id}}/" class="btn btn-secondary my-2" ><h5 class="my-1">All Orders</h5></a>
                         <a onclick="pendingProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Pending Orders</h5></a>
                         <a onclick="completeProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Complete Orders</h5></a>
                         <a onclick="newProfile()" class="btn btn-secondary my-2"><h5 class="my-1">New Order</h5></a>
@@ -15,26 +15,25 @@
                     </div>   
                 </div>
             </div>
-                
-            <div class="col-md-9" id="profile" >
+            {{!-- profile --}}
+<div class="col-md-9" id="profile" >
                 {{#if currentPatient as |currentPatient|}} 
                 {{>profile-data}}
                 {{/if}}
-            </div> 
-
+</div> 
             {{!-- all orders --}}
-         <div class="col-md-9" id="allOrders" style="display: none;">
+<div class="col-md-9" id="allOrders" style="display: none;">
                 {{#if currentPatient as |currentPatient|}} 
                 {{>allOrdersSpecific-data}}
                 {{/if}}
-                </div> 
-        {{!-- pending orders --}}
+</div> 
+            {{!-- pending orders --}}
 <div class="col-md-9" id="pending" style="display: none;">
                 {{#if currentPatient as |currentPatient|}} 
                 {{>pendingSpecific-data}}
                 {{/if}} 
 </div>
-                    {{!-- Complete orders --}}
+            {{!-- Complete orders --}}
 <div class="col-md-9" id="Complete" style="display: none;">
                 {{#if currentPatient as |currentPatient|}} 
                 {{>completeSpecific-data}}
