@@ -1,0 +1,50 @@
+<section class="container bg-dark p-4 rounded-1">
+    <div class="main-body">
+        <div class="row d-flex">
+            
+            <div class="col-md-3 mb-3">
+                <div class="card-body bg-light rounded-3">
+                    <div class="d-flex flex-column text-center p-1"> 
+                        <h3>{{newAllOrders.0.patient.first_name}} {{newAllOrders.0.patient.last_name}}</h3>
+                        <a onclick="/api/patient/{{ thisPt }}" class="btn btn-success my-2"><h5 class="my-1">Profile</h5></a>
+                        <a onclick="allOrdersProfile()" class="btn btn-secondary my-2" ><h5 class="my-1">All Orders</h5></a>
+                        <a onclick="pendingProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Pending Orders</h5></a>
+                        <a onclick="completeProfile()" class="btn btn-secondary my-2"><h5 class="my-1">Complete Orders</h5></a>
+                        <a onclick="newProfile()" class="btn btn-secondary my-2"><h5 class="my-1">New Order</h5></a>
+
+                    </div>   
+                </div>
+            </div>
+            <div class="col-md-9" id="allOrders">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="container-fluid p-5 bg-light">
+                            <h6 style="text-align: center;">Pending Orders (For this patient)</h6>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date of order</th>
+                                            <th scope="col">type of order</th>
+                                            <th scope="col">Order status</th>
+                                            <!--patientId foreign key-->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                {{#each newAllOrders as |orders|}} 
+                {{>allOrdersSpecific-data}}
+                {{/each}}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>    
+</section>
+<script src="/js/patientDisplay.js"></script>
+<script src="/js/patient-page.js" ></script>
