@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const sendSMS = require('../controllers/api/sendsms');
+const sendSMS = require('../controllers/api/sendSms');
 const patient = require('./patient');
 
 
