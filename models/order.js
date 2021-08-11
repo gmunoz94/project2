@@ -21,6 +21,10 @@ order.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    order_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     patient_id: {
        type:DataTypes.INTEGER,
        references: {
