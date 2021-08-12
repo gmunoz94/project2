@@ -49,7 +49,7 @@ order.init(
       afterCreate: async (thisOrder) => {
           const thisPatient = await patient.findByPk(thisOrder.patient_id)
   
-          sendSMS("+1" + thisPatient.phone_number, `Hello ${thisPatient.first_name} your ${thisOrder.type} order has been placed!`);
+          sendSMS("+1" + thisPatient.phone_number, `Hello ${thisPatient.first_name} your ${thisOrder.type} order is now ${thisOrder.status}`); //has been placed!`);
       },
       afterUpdate: async (thisOrder) => {
         if (thisOrder.status == 'Ready') {
