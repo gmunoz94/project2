@@ -5,7 +5,7 @@
             <div class="col-md-3 mb-3">
                 <div class="card-body bg-light rounded-3">
                     <div class="d-flex flex-column text-center p-1"> 
-                        <h3>{{newAllOrders.0.patient.first_name}} {{newAllOrders.0.patient.last_name}}</h3>
+                        <h3>{{ptInfo.first_name}} {{ptInfo.last_name}}</h3>
                         <a href="/api/patient/{{thisPt}}" class="btn btn-secondary my-2"><h5 class="my-1">Profile</h5></a>
                         <a href="/api/orders/allOrders/{{thisPt}}/" class="btn btn-success my-2" ><h5 class="my-1">All Orders</h5></a>
                         <a href="/api/orders/pendingOrders/{{thisPt}}/" class="btn btn-secondary my-2"><h5 class="my-1">Pending Orders</h5></a>

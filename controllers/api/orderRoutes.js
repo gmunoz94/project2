@@ -43,12 +43,15 @@ router.get('/allOrders/:id/', async  (req, res) => {
     
     const newAllOrders = allOrders.map((orderss) => orderss.get({ plain: true }));
     
-    console.log(newAllOrders)
+    const currentPT = await patient.findByPk(req.params.id)
+
+    const thisPt = currentPT.get({ plain: true })
 
     res.render('ptAllOrders', {
       loggedIn: req.session.loggedIn,
       thisPt: req.params.id,
       newAllOrders,
+      ptInfo: thisPt
     });
   } catch (err) {
     res.status(500).json(err);
@@ -75,12 +78,15 @@ router.get('/pendingOrders/:id/', async  (req, res) => {
     
     const pendingOrders = newOrders.map((orderss) => orderss.get({ plain: true }));
     
-    console.log(pendingOrders)
+    const currentPT = await patient.findByPk(req.params.id)
+
+    const thisPt = currentPT.get({ plain: true })
 
     res.render('ptPendingOrders', {
       loggedIn: req.session.loggedIn,
       thisPt: req.params.id,
       pendingOrders,
+      ptInfo: thisPt
     });
   } catch (err) {
     res.status(500).json(err);
@@ -162,6 +168,10 @@ router.get('/completeOrders/:id/', async  (req, res) => {
       }]
     });
     
+    const currentPT = await patient.findByPk(req.params.id)
+
+    const thisPt = currentPT.get({ plain: true })
+
     if (!newOrders) {
       res.status(404).json({ message: 'No patient with this ID' });
       return;
@@ -175,6 +185,7 @@ router.get('/completeOrders/:id/', async  (req, res) => {
       loggedIn: req.session.loggedIn,
       thisPt: req.params.id,
       completeOrders,
+      ptInfo: thisPt,
     });
   } catch (err) {
     res.status(500).json(err);
